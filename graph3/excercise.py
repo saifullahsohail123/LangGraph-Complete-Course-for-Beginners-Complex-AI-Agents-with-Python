@@ -25,7 +25,15 @@ def user_age(mystate: AgentState) -> AgentState:
 def user_skills(mystate: AgentState) -> AgentState:
     """This is the third node of our sequence"""
 
-    mystate['final'] = mystate["final"] + f" You have skills in: {mystate['skills']}"
+    
+    if len(skills_list) == 1:
+        formatted_skills = skills_list[0]
+    elif len(skills_list) == 2:
+        formatted_skills = f"{skills_list[0]} and {skills_list[1]}"
+    else:
+        formatted_skills = ", ".join(skills_list[:-1]) + f" and {skills_list[-1]}"
+    
+    mystate['final'] = mystate["final"] + f" You have skills in: {formatted_skills}."
     return mystate
 
 
@@ -44,7 +52,16 @@ app = graph.compile()
 print("\n")
 
 
-result = app.invoke({"name": "Linda", "age": "31","skills": "Python, Machien Learning and LangGraph"})
+skills = input('Enter skills seprated by commas')
+
+# convert skills variable to following format -> "Python, Machine Learning, LangGraph" for any number of skills entered seprated by commas
+skills_list = [skill.strip() for skill in skills.split(',')]
+# This lines converts the skills str into a clean list of strings
+
+
+# result = app.invoke({"name": "Linda", "age": "31","skills": "Python, Machien Learning and LangGraph"})
+
+result = app.invoke({"name": "Linda", "age": "31", "skills": ', '.join(skills_list)})
 
 print("# This only prints the final result, or final key in the state")
 print(result["final"])
