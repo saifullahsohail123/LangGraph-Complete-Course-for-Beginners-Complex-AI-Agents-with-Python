@@ -26,3 +26,13 @@ def second_node(mystate: AgentState) -> AgentState:
 
 
 
+graph = StateGraph(AgentState)
+graph.add_node("first_node",first_node)
+graph.add_node("second_node",second_node)
+
+graph.set_entry_point("first_node")
+graph.add_edge("first_node", "second_node") # we add an edge from the first node to the second node, creating a sequence
+graph.set_finish_point("second_node")
+app = graph.compile()
+
+
