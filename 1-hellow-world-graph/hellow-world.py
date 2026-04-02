@@ -37,9 +37,16 @@ result = app.invoke({"message": "Alice"}) # we invoke the application with an in
 print(result["message"]) # we print the message in the result state
 
 
+# result = app.invoke({"message": f"{result['message']} + 2nd"}) # we invoke the application again, this time using the message from the previous result as input
+
+# print(result["message"]) # we print the message in the result state
+
+# Result will be -> Alice you're doing an amazing job! + 2nd you're doing an amazing job!
 
 
+result = app.invoke({"message": "Bob"})
 
+print(result["message"]) # we print the message in the result state
 
 
 
