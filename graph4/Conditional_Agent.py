@@ -61,3 +61,26 @@ graph.add_edge("add_node", END)
 graph.add_edge("subtract_node", END)
 
 app = graph.compile()
+
+
+
+# This below code is for plot only
+
+
+# This import is only for plotting graph, can be ignored if no plot required
+import matplotlib.pyplot as plt
+from PIL import Image as PILImage
+import io
+
+
+
+
+# This is only for plotting graph, can be commmented out if no plot required
+
+# Convert PNG bytes to PIL Image for matplotlib
+png_data = app.get_graph().draw_mermaid_png()
+img = PILImage.open(io.BytesIO(png_data))
+
+plt.imshow(img)
+plt.axis('off') # hide axes
+plt.show() # display the graph structure as an image
