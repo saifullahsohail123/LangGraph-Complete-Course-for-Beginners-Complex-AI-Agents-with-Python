@@ -22,7 +22,7 @@ def second_node(mystate: AgentState) -> AgentState:
     # mystate['final'] = f"You are {mystate['age']} years old!" # Logical error, 
     # as this completely replaces the state,below one is the correct one
 
-    mystate['final'] = mystate["final"] + f"You are {mystate['age']} years old!"
+    mystate['final'] = mystate["final"] + f" You are {mystate['age']} years old!"
     return mystate
 
 
@@ -36,7 +36,17 @@ graph.add_edge("first_node", "second_node") # we add an edge from the first node
 graph.set_finish_point("second_node")
 app = graph.compile()
 
+print("\n")
 
+result = app.invoke({"name": "Alice", "age": "30"}) # we invoke the graph with an initial state containing a name and age
+
+print("# This only prints the final result, or final key in the state")
+print(result["final"])
+
+print("\n")
+
+print("# This prints the whole state")
+print(result)
 
 
 
