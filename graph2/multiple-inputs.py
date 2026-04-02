@@ -10,7 +10,14 @@ class AgentState(TypedDict):     # Our state shcema
 def process_values(mystate: AgentState) -> AgentState:
     """ This function handles multiple different inputs """
 
+    print('\n')
+
+    print(mystate)
+
     mystate["result"] = f"Hi there {mystate["name"]}! Your sum  = {sum(mystate["values"])}"
+
+    print(mystate)   # mystate["result"]  also gets displayed
+    print('\n above two print statments are in the funciton \n ')
     return mystate
 
 # Defining the Graph
