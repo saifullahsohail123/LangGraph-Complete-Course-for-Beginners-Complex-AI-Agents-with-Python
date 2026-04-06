@@ -44,9 +44,9 @@ graph.add_node("random", random_node)
 graph.add_edge("greeting", "random")
 
 
-graph.add_conditional_edges("random", should_continue,{
-    "loop": "random",
-    "exit": END
+graph.add_conditional_edges("random", should_continue,{      # source node , Action
+    "loop": "random", # Self-loop back to same node
+    "exit": END # End the graph
 })
 
 # graph.set_entry_point("greeting")
