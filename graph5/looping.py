@@ -49,7 +49,8 @@ graph.add_conditional_edges("random", should_continue,{
     "exit": END
 })
 
-graph.set_entry_point("greeting")
+# graph.set_entry_point("greeting")
+graph.add_edge(START, "greeting")
 
 app = graph.compile()
 
