@@ -52,6 +52,7 @@ def guess_node(state: GameState) -> GameState:
 def hint_node(state: GameState) -> GameState:
     """Here we provide a hint based on the last guess and update the bounds"""
     latest_guess = state["guesses"][-1]
+    print("latest guess",latest_guess)
     target = state["target_number"]
     
     if latest_guess < target:
@@ -59,15 +60,18 @@ def hint_node(state: GameState) -> GameState:
         
         state["lower_bound"] = max(state["lower_bound"], latest_guess + 1)
         print(f"Hint: {state['hint']}")
+        print('new lower bound is ',state["lower_bound"])
         
     elif latest_guess > target:
         state["hint"] = f"The number {latest_guess} is too high. Try lower!"
       
         state["upper_bound"] = min(state["upper_bound"], latest_guess - 1)
         print(f"Hint: {state['hint']}")
+        print('new upper bound is ',state["upper_bound"])
     else:
         state["hint"] = f"Correct! You found the number {target} in {state['attempts']} attempts."
         print(f"Success! {state['hint']}")
+
     
     return state
     
