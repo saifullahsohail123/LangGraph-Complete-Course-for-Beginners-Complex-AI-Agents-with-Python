@@ -25,7 +25,7 @@ def subtractor(mystate: AgentState) -> AgentState:
     return mystate
 
 
-def decide_next_node(mystate: AgentState) -> AgentState:
+def decide_next_node(mystate: AgentState) -> str:
     """This node will select the next node of the graph"""
 
     if mystate['operation'] == "+":
@@ -43,24 +43,35 @@ graph.add_node("subtract_node",subtractor)
 
 # graph.add_node("router",decide_next_node())   # error as decide_next_node returns a string which is the name of the next node, but it should return a state, we will fix this in the next step
 
-graph.add_node("router", lambda state: decide_next_node(state)) # we set is_router to True to indicate that this node will return the name of the next node to execute
+#error
+# graph.add_node("router",decide_next_node)    
+# Reason
+#When you simplified to graph.add_node("router", decide_next_node), LangGraph now properly processes the return value 
+#— and chokes on the string. That is it processes the state and expects to receives a state while it receives a str
+# and this is the reason it lands an error
+
+# ✅ Router node — just passes state through, does nothing  # lambda state : state is a passthrough
+graph.add_node("router", lambda state: state)
 
 
 graph.add_edge(START, "router")
 
-graph.add_conditional_edges("router", decide_next_node,
-                            {
-                                # Edge: Node
-                                "addition_operation": "add_node",
-                                "subtraction_operation": "subtract_node"
-                            }) # This will automatically add edges from the router node to the addition_operation and subtraction_operation nodes based on the return value of decide_next_node function
-
+# ✅ Conditional edges — THIS is where decide_next_node actually runs
+graph.add_conditional_edges("router", decide_next_node, {
+    "addition_operation": "add_node",
+    "subtraction_operation": "subtract_node"
+})
 
 
 graph.add_edge("add_node", END)
 graph.add_edge("subtract_node", END)
 
 app = graph.compile()
+
+result = app.invoke({"num1": 10, "num2": 5, "operation": "+"})
+
+print('result', result["final"])
+
 
 
 
