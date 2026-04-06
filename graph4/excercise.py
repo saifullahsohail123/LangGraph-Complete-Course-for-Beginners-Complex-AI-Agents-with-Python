@@ -19,7 +19,7 @@ def adder(mystate: AgentState) -> AgentState:
 def adder_next(mystate: AgentState) -> AgentState:
     """ This node adds the two numbers """
 
-    mystate['final'] = mystate['num1'] + mystate['num2']
+    mystate['final'] = mystate['final'] + mystate['num1'] + mystate['num2']
 
     return mystate
 
@@ -35,7 +35,7 @@ def subtractor(mystate: AgentState) -> AgentState:
 def subtractor_next(mystate: AgentState) -> AgentState:
     """ This node subtracts the two numbers """
 
-    mystate['final'] = mystate['num1'] - mystate['num2']
+    mystate['final'] = mystate['final'] - mystate['num1'] - mystate['num2']
 
     return mystate
 
