@@ -1,3 +1,4 @@
+import os
 from typing import TypedDict, List, Union
 from langchain_core.messages import HumanMessage, AIMessage
 from langchain_openai import ChatOpenAI
@@ -41,3 +42,19 @@ while user_input!= "exit":
     conversation_history = result["message"]
 
     user_input = input("Enter: ")
+
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+log_file = os.path.join(script_dir, "logging.txt")
+
+with open(log_file, "w") as file:
+    file.write("Your Conversation History:\n")
+    
+    for message in conversation_history:
+        if isinstance(message, HumanMessage):
+            file.write(f"You: {message.content}\n")
+        elif isinstance(message, AIMessage):
+            file.write(f"AI: {message.content}\n\n")
+    file.write("End of Conversation")
+
+print("Conversation saved to logging.txt")
