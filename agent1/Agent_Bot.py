@@ -26,5 +26,8 @@ graph.add_edge(START, "process")
 graph.add_edge("process", END)
 agent = graph.compile()
 
+
 user_input = input("Enter: ")
-result = agent.invoke({"message": [HumanMessage(content=user_input)]})
+while user_input != "exit":
+    result = agent.invoke({"message": [HumanMessage(content=user_input)]})
+    user_input = input("Enter: ")
