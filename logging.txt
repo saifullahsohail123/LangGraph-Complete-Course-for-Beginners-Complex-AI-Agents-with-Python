@@ -1,8 +1,0 @@
-Your Conversation History:
-You: Hi
-AI: How can I assist you today?
-
-You: My name is Saif
-AI: Hello Saif! It's nice to meet you. Is there something I can help you with, or would you like to chat for a bit?
-
-End of Conversation

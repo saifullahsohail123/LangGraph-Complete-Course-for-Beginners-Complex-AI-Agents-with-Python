@@ -1,0 +1,25 @@
+Your Conversation History:
+You: hi
+AI: How can I assist you today?
+
+You: my Name is Saif
+AI: Hi Saif, it's nice to meet you! Is there something I can help you with or would you like to chat for a bit?
+
+You: whats my name?
+AI: You told me your name is Saif. How did I do?
+
+You: my name?
+AI: Your name is Saif. We just established that earlier! Is there something else you'd like to chat about or ask about?
+
+You: what do you want ?
+AI: I'm just a language model, my goal is to assist and provide helpful information to users like you.
+I don't have personal desires or wants, but I'm here to:
+1. Answer your questions to the best of my abilities
+2. Provide information on a wide range of topics
+3. Engage in conversation and help with tasks such as language translation, text summarization, and more
+How can I assist you today, Saif?
+
+You: whats my name
+AI: You've asked me this before! You told me your name is Saif. Is there something specific you'd like to know or talk about related to your name?
+
+End of Conversation
