@@ -21,6 +21,8 @@ def process(state: AgentState) -> AgentState:
     state["message"].append(AIMessage(content=response.content))
     print(f"Agent Response: {response.content}")
 
+    # print(f"Current State",state["message"])
+
     return state
 
 graph = StateGraph(AgentState)
