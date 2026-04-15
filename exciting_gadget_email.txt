@@ -1,0 +1,18 @@
+Subject: Quick Question About Your New Drone Project
+
+Hi Saif,
+
+I hope you’re doing well! I’ve been hearing some exciting chatter about the new gadget you’re working on, and it sounds like it involves a drone. I’m curious to learn more about the project – the concept, the intended use cases, and any timelines you’re comfortable sharing.
+
+- What are the drone’s vision capabilities?
+- Is it using any large language model (LLM) for interpreting visual data?
+- If so, is the LLM model running offline or does it rely on an online service?
+- What is the price of the drone?
+- How long did it take to develop the drone?
+- Does the drone follow a specific path during operation?
+- If so, is the path following SLAM-based, or does it rely on other technologies such as visual odometry, GPS, or motion capture?
+
+I am very excited and curious to know.
+
+Best regards,
+Ahmed
