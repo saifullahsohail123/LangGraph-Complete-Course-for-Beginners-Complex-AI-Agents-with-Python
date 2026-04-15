@@ -38,4 +38,4 @@ state = {"message": ["Nice to meet you!"]}
 # with reducer
 state = {"message": ["Hi!"]}
 update = {"message": ["Nice to meet you!"]}
-state = {"message": ["Hi!, Nice to meet you!"]}
+state = {"message": ["Hi!,  Nice to meet you!"]}
