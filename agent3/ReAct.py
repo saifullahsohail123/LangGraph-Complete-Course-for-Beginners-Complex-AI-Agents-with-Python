@@ -1,8 +1,8 @@
 from typing import Annotated, Sequence, TypedDict
 from dotenv import load_dotenv
-from langchain_core.messages import BaseMessage
-from langchain_core.messages import ToolMessage
-from langchain_core.messages import SystemMessage
+from langchain_core.messages import BaseMessage # The foundational class for all message types in Langraph
+from langchain_core.messages import ToolMessage # Passes data back to LLM after it calls a tool such as the content  and the tool_call_id
+from langchain_core.messages import SystemMessage # Message for providing instructions to the LLM
 from langchain_openai import ChatOpenAI
 from langchain_ollama import ChatOllama
 from langchain_core.tools import tool
@@ -21,3 +21,4 @@ print(email.__metadata__)
 
 
 # Sequence - To automatically handle the state updates for sequence such as by adding new messages to chat history
+
