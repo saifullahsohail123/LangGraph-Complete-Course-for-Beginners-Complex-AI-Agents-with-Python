@@ -18,3 +18,6 @@ from langgraph.prebuilt import ToolNode
 
 email = Annotated[str, "This has to be a valid email format!"]
 print(email.__metadata__)
+
+
+# Sequence - To automatically handle the state updates for sequence such as by adding new messages to chat history
