@@ -47,14 +47,14 @@ class AgentState(TypedDict):
 
 @tool
 def add(a: int, b: int):
-    """This is an addition function that adds two numbers together"""
+    """This is an addition function that adds two numbers together""" # if not added, it will give error. docstring is must for Tool call
     
     return a + b
 
 
 tools = [add]
 
-model = ChatOllama(model="llama3.2").bind_tools(tools)
+model = ChatOllama(model="llama3.2:latest").bind_tools(tools)
 
 
 def model_call(state: AgentState) -> AgentState:
@@ -63,7 +63,9 @@ def model_call(state: AgentState) -> AgentState:
     
     # Same thing as above in comments
     response = model.invoke(["You are my AI Assistant, please answer my query to the best of your ability"] + state["messages"])
+    # print(f"DEBUG - Model response tool calls: {response.tool_calls}")
     return {"messages": [response]}
+
 
 
 def should_continue(state: AgentState):
@@ -109,5 +111,5 @@ def print_stream(stream): # Just a function to beautifully print the whole proce
             message.pretty_print()
 
 
-inputs = {"messages": [("user", "Add 3 + 4")]}
+inputs = {"messages": [("user", "Add 3 + 4. After that addup 5 + 10. After that 5 +20")]}
 print_stream(app.stream(inputs, stream_mode="values"))
