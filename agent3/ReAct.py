@@ -22,3 +22,20 @@ print(email.__metadata__)
 
 # Sequence - To automatically handle the state updates for sequence such as by adding new messages to chat history
 
+# add_message, It is basically a Reducer Function
+# Rule that controls how updates from nodes are combined with the exsisting state.
+# Tells us how to merge new data into current state
+
+# Without a reducer, updates would have replaced the exsisting value entirely!
+
+
+# Example
+# without reducer
+state = {"message": ["Hi!"]}
+update = {"message": ["Nice to meet you!"]}
+state = {"message": ["Nice to meet you!"]}
+
+# with reducer
+state = {"message": ["Hi!"]}
+update = {"message": ["Nice to meet you!"]}
+state = {"message": ["Hi!, Nice to meet you!"]}
