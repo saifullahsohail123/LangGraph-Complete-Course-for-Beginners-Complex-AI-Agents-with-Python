@@ -1,0 +1,139 @@
+(langraph-py3.13) (base) admin1@admin1-Precision-3680:~/Desktop/Self Learning/Langraph$ python agent4/Drafter.py 
+
+ === DRAFTER ===
+
+🤖 AI: Sure thing! What kind of document are you looking to create or update today? It could be a report, email, resume, article, or anything else you have in mind. Just let me know the details and I’ll help you craft it.
+
+🤖 AI: Sure thing! What kind of document are you looking to create or update today? It could be a report, email, resume, article, or anything else you have in mind. Just let me know the details and I’ll help you craft it.
+
+What would you like to do with the document? write a email to Saif enquiring about the new gadget he is making. I have heard it is something about a drone
+
+ USER: write a email to Saif enquiring about the new gadget he is making. I have heard it is something about a drone
+   📞 Calling tools: ['update']
+
+🔧 TOOL RESULT: Document has been updated with content: Subject: Quick Question About Your New Drone Project
+
+Hi Saif,
+
+I hope you’re doing well! I’ve been hearing some exciting chatter about the new gadget you’re working on, and it sounds like it involves a drone. I’m curious to learn more about the project – the concept, the intended use cases, and any timelines you’re comfortable sharing.
+
+If there’s a good time to chat or if you have any materials you’d like to send over, I’d love to hear about it. Looking forward to catching up and learning more about your innovation.
+
+Best regards,
+[Your Name]
+
+What would you like to do with the document? ask questions about the vision capabilities of drone, is it using any LLM model, the LLM model is it offline or online  
+
+ USER: ask questions about the vision capabilities of drone, is it using any LLM model, the LLM model is it offline or online
+   📞 Calling tools: ['update']
+
+🔧 TOOL RESULT: Document has been updated with content: Subject: Quick Question About Your New Drone Project
+
+Hi Saif,
+
+I hope you’re doing well! I’ve been hearing some exciting chatter about the new gadget you’re working on, and it sounds like it involves a drone. I’m curious to learn more about the project – the concept, the intended use cases, and any timelines you’re comfortable sharing.
+
+I’d especially love to know more about the drone’s vision capabilities. Is it using any large language model (LLM) for interpreting visual data? If so, is the LLM model running offline or does it rely on an online service?
+
+If there’s a good time to chat or if you have any materials you’d like to send over, I’d love to hear about it. Looking forward to catching up and learning more about your innovation.
+
+Best regards,
+[Your Name]
+
+What would you like to do with the document? make the questions that I asked appear in bullet format
+
+ USER: make the questions that I asked appear in bullet format
+   📞 Calling tools: ['update']
+
+🔧 TOOL RESULT: Document has been updated with content: Subject: Quick Question About Your New Drone Project
+
+Hi Saif,
+
+I hope you’re doing well! I’ve been hearing some exciting chatter about the new gadget you’re working on, and it sounds like it involves a drone. I’m curious to learn more about the project – the concept, the intended use cases, and any timelines you’re comfortable sharing.
+
+- What are the drone’s vision capabilities?
+- Is it using any large language model (LLM) for interpreting visual data?
+- If so, is the LLM model running offline or does it rely on an online service?
+
+If there’s a good time to chat or if you have any materials you’d like to send over, I’d love to hear about it. Looking forward to catching up and learning more about your innovation.
+
+Best regards,
+[Your Name]
+
+What would you like to do with the document? ask the price of drone, time consumed making the drone
+
+ USER: ask the price of drone, time consumed making the drone
+   📞 Calling tools: ['update']
+
+🔧 TOOL RESULT: Document has been updated with content: Subject: Quick Question About Your New Drone Project
+
+Hi Saif,
+
+I hope you’re doing well! I’ve been hearing some exciting chatter about the new gadget you’re working on, and it sounds like it involves a drone. I’m curious to learn more about the project – the concept, the intended use cases, and any timelines you’re comfortable sharing.
+
+- What are the drone’s vision capabilities?
+- Is it using any large language model (LLM) for interpreting visual data?
+- If so, is the LLM model running offline or does it rely on an online service?
+- What is the price of the drone?
+- How long did it take to develop the drone?
+
+If there’s a good time to chat or if you have any materials you’d like to send over, I’d love to hear about it. Looking forward to catching up and learning more about your innovation.
+
+Best regards,
+[Your Name]
+
+What would you like to do with the document? does the drone follow any specific path, the path following is it SLAM based or [name any technologies other than SLAM]
+
+ USER: does the drone follow any specific path, the path following is it SLAM based or [name any technologies other than SLAM]
+   📞 Calling tools: ['update']
+
+🔧 TOOL RESULT: Document has been updated with content: Subject: Quick Question About Your New Drone Project
+
+Hi Saif,
+
+I hope you’re doing well! I’ve been hearing some exciting chatter about the new gadget you’re working on, and it sounds like it involves a drone. I’m curious to learn more about the project – the concept, the intended use cases, and any timelines you’re comfortable sharing.
+
+- What are the drone’s vision capabilities?
+- Is it using any large language model (LLM) for interpreting visual data?
+- If so, is the LLM model running offline or does it rely on an online service?
+- What is the price of the drone?
+- How long did it take to develop the drone?
+- Does the drone follow a specific path during operation?
+- If so, is the path following SLAM-based, or does it rely on other technologies such as visual odometry, GPS, or motion capture?
+
+If there’s a good time to chat or if you have any materials you’d like to send over, I’d love to hear about it. Looking forward to catching up and learning more about your innovation.
+
+Best regards,
+[Your Name]
+
+What would you like to do with the document? in the best regards area, include Ahmed. plus in the ending dialogue include something like I am very excited and curios to know 
+
+ USER: in the best regards area, include Ahmed. plus in the ending dialogue include something like I am very excited and curios to know
+   📞 Calling tools: ['update']
+
+🔧 TOOL RESULT: Document has been updated with content: Subject: Quick Question About Your New Drone Project
+
+Hi Saif,
+
+I hope you’re doing well! I’ve been hearing some exciting chatter about the new gadget you’re working on, and it sounds like it involves a drone. I’m curious to learn more about the project – the concept, the intended use cases, and any timelines you’re comfortable sharing.
+
+- What are the drone’s vision capabilities?
+- Is it using any large language model (LLM) for interpreting visual data?
+- If so, is the LLM model running offline or does it rely on an online service?
+- What is the price of the drone?
+- How long did it take to develop the drone?
+- Does the drone follow a specific path during operation?
+- If so, is the path following SLAM-based, or does it rely on other technologies such as visual odometry, GPS, or motion capture?
+
+I am very excited and curious to know.
+
+Best regards,
+Ahmed
+
+What would you like to do with the document? save the filename as exciting_gadget_email
+
+ USER: save the filename as exciting_gadget_email
+   📞 Calling tools: ['save']
+Document content has been saved to exciting_gadget_email.txt
+
+🔧 TOOL RESULT: Document content has been saved to exciting_gadget_email.txt
