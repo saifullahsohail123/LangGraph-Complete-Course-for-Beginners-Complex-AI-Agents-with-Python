@@ -39,3 +39,10 @@ state = {"message": ["Nice to meet you!"]}
 state = {"message": ["Hi!"]}
 update = {"message": ["Nice to meet you!"]}
 state = {"message": ["Hi!,  Nice to meet you!"]} # add_message
+
+
+class AgentState(TypedDict):
+    messages:  Annotated[Sequence[BaseMessage], add_messages] # It says to use Annotaed Sequence of Base Messages that have a reducer add_message
+
+
+
