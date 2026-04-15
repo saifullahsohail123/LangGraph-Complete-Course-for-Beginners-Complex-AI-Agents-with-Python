@@ -51,8 +51,21 @@ def add(a: int, b: int):
     
     return a + b
 
+@tool
+def subtract(a: int, b: int):
+    """Subtraction function""" # if not added, it will give error. docstring is must for Tool call
+    
+    return a - b
 
-tools = [add]
+
+@tool
+def multiply(a: int, b: int):
+    """Multiplication function""" # if not added, it will give error. docstring is must for Tool call
+    
+    return a * b
+
+
+tools = [add, multiply, subtract]
 
 model = ChatOllama(model="llama3.2:latest").bind_tools(tools)
 
@@ -111,5 +124,5 @@ def print_stream(stream): # Just a function to beautifully print the whole proce
             message.pretty_print()
 
 
-inputs = {"messages": [("user", "Add 3 + 4. After that addup 5 + 10. After that 5 +20")]}
+inputs = {"messages": [("user", "Add 3 and 4. Subtract  5 and 10. Multiplty 5 and 20")]}
 print_stream(app.stream(inputs, stream_mode="values"))
