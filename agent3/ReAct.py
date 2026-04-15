@@ -124,5 +124,5 @@ def print_stream(stream): # Just a function to beautifully print the whole proce
             message.pretty_print()
 
 
-inputs = {"messages": [("user", "Add 3 and 4. Subtract  5 and 10. Multiplty 5 and 20")]}
+inputs = {"messages": [("user", "Add 40 and 12 multiply it with 10, Also tell me a joke")]}
 print_stream(app.stream(inputs, stream_mode="values"))
