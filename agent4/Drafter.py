@@ -171,3 +171,230 @@ def run_document_agent():
 
 if __name__ == "__main__":
     run_document_agent()
+
+
+# ============================================================================
+# POTENTIAL ENHANCEMENTS & INTEGRATIONS
+# ============================================================================
+
+# 1. ELEVEN LABS INTEGRATION (Text-to-Speech)
+# ============================================================================
+# Use case: Read the generated email or document content aloud
+#
+# Implementation:
+#   from elevenlabs import ElevenLabs, VoiceSettings
+#   
+#   def read_document_aloud():
+#       client = ElevenLabs(api_key="YOUR_API_KEY")
+#       audio = client.text_to_speech.convert(
+#           text=document_content,
+#           voice_id="21m00Tcm4TlvDq8ikWAM",  # Rachel voice
+#           model_id="eleven_monolingual_v1"
+#       )
+#       # Save to file or stream
+#       with open("output_audio.mp3", "wb") as f:
+#           for chunk in audio:
+#               f.write(chunk)
+#
+# Add a new tool:
+#   @tool
+#   def read_aloud() -> str:
+#       """Read the current document content aloud using Eleven Labs"""
+#       # Implementation here
+#       return "Document read aloud successfully"
+
+
+# 2. VOICE INPUT INTEGRATION (Speech-to-Text)
+# ============================================================================
+# Use case: User speaks commands instead of typing
+#
+# Implementation options:
+#   a) Using OpenAI Whisper:
+#       import speech_recognition as sr
+#       from openai import OpenAI
+#       
+#       def get_voice_input():
+#           recognizer = sr.Recognizer()
+#           with sr.Microphone() as source:
+#               print("Listening...")
+#               audio = recognizer.listen(source)
+#           client = OpenAI()
+#           transcript = client.audio.transcriptions.create(
+#               model="whisper-1",
+#               file=audio
+#           )
+#           return transcript.text
+#
+#   b) Using Google Speech Recognition (free):
+#       audio_text = recognizer.recognize_google(audio)
+#
+# Modify our_agent to support voice:
+#   def our_agent(state: AgentState) -> AgentState:
+#       # ... existing code ...
+#       if use_voice_input:
+#           user_input = get_voice_input()
+#       else:
+#           user_input = input("What would you like to do with the document? ")
+
+
+# 3. KNOWLEDGE BASE INTEGRATION
+# ============================================================================
+# Use case: Allow the agent to access company documents, policies, FAQs
+#
+# Implementation with RAG (Retrieval-Augmented Generation):
+#   from langchain.vectorstores import FAISS
+#   from langchain.embeddings import OpenAIEmbeddings
+#   from langchain.document_loaders import DirectoryLoader
+#
+#   # Load and embed your knowledge base
+#   loader = DirectoryLoader("./knowledge_base/")
+#   docs = loader.load()
+#   embeddings = OpenAIEmbeddings()
+#   knowledge_base = FAISS.from_documents(docs, embeddings)
+#
+#   # Add a retrieval tool
+#   @tool
+#   def search_knowledge_base(query: str) -> str:
+#       """Search the company knowledge base for relevant information"""
+#       results = knowledge_base.similarity_search(query, k=3)
+#       return "\\n".join([doc.page_content for doc in results])
+#
+#   tools = [update, save, search_knowledge_base]
+#
+#   # Update system prompt to mention the knowledge base
+#   system_prompt = "You have access to a knowledge base about company policies..."
+
+
+# 4. INTEGRATION WITH EMAIL SERVICES
+# ============================================================================
+# Use case: Send the drafted email directly via Gmail/Outlook
+#
+# Implementation:
+#   import smtplib
+#   from email.mime.text import MIMEText
+#
+#   @tool
+#   def send_email(recipient: str, subject: str) -> str:
+#       """Send the drafted document as an email"""
+#       global document_content
+#       
+#       msg = MIMEText(document_content)
+#       msg['Subject'] = subject
+#       msg['From'] = "sender@example.com"
+#       msg['To'] = recipient
+#
+#       with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
+#           server.login("YOUR_EMAIL", "YOUR_PASSWORD")
+#           server.send_message(msg)
+#       
+#       return f"Email sent to {recipient}"
+
+
+# 5. DOCUMENT FORMAT EXPORTS
+# ============================================================================
+# Use case: Export to PDF, DOCX, Markdown, etc.
+#
+# Implementation:
+#   from docx import Document
+#   from pypdf import PdfWriter
+#   import markdown
+#
+#   @tool
+#   def export_to_format(format: str, filename: str) -> str:
+#       """Export document to different formats: pdf, docx, md, html"""
+#       global document_content
+#       
+#       if format.lower() == "docx":
+#           doc = Document()
+#           doc.add_paragraph(document_content)
+#           doc.save(filename)
+#       elif format.lower() == "md":
+#           with open(filename, 'w') as f:
+#               f.write(document_content)
+#       # ... handle other formats
+#       
+#       return f"Document exported to {format}"
+
+
+# 6. MULTI-DOCUMENT MANAGEMENT
+# ============================================================================
+# Use case: Work with multiple documents simultaneously
+#
+# Implementation:
+#   documents = {}  # Global dict to store multiple documents
+#
+#   @tool
+#   def create_document(doc_name: str) -> str:
+#       """Create a new document"""
+#       global documents
+#       documents[doc_name] = ""
+#       return f"Document '{doc_name}' created"
+#
+#   @tool
+#   def switch_document(doc_name: str) -> str:
+#       """Switch between open documents"""
+#       global document_content, documents
+#       if doc_name in documents:
+#           document_content = documents[doc_name]
+#           return f"Switched to document '{doc_name}'"
+#       return f"Document '{doc_name}' not found"
+
+
+# 7. COLLABORATIVE EDITING WITH DATABASE
+# ============================================================================
+# Use case: Multiple users editing the same document with version control
+#
+# Implementation:
+#   from sqlalchemy import create_engine
+#   from datetime import datetime
+#
+#   @tool
+#   def save_version(version_name: str) -> str:
+#       """Save current content as a named version in database"""
+#       # Store in database with timestamp and version_name
+#       # Can later restore to any version
+#
+#   @tool
+#   def list_versions() -> str:
+#       """List all saved versions of the document"""
+#       # Query database and return versions
+
+
+# 8. INTERNET SEARCH INTEGRATION
+# ============================================================================
+# Use case: Allow agent to search the web for information
+#
+# Implementation:
+#   from langchain.tools import DuckDuckGoSearchRun
+#
+#   search = DuckDuckGoSearchRun()
+#
+#   @tool
+#   def search_web(query: str) -> str:
+#       """Search the internet for information"""
+#       return search.run(query)
+#
+#   tools = [update, save, search_web]
+
+
+# 9. CUSTOM MODEL FINE-TUNING
+# ============================================================================
+# Use case: Fine-tune the model on your specific writing style/domain
+#
+# Implementation:
+#   # Collect training data of good documents
+#   # Fine-tune using OpenAI's fine-tuning API or use LoRA with local models
+#   # Replace: model = ChatOllama(model="base-model")
+#   # With: model = ChatOllama(model="fine-tuned-model")
+
+
+# 10. REAL-TIME COLLABORATION & STREAMING
+# ============================================================================
+# Use case: Show AI responses as they're being generated (streaming)
+#
+# Implementation:
+#   def our_agent_streaming(state: AgentState) -> AgentState:
+#       # Use response = model.stream(...) instead of model.invoke(...)
+#       # Print tokens as they arrive in real-time
+#       for chunk in response:
+#           print(chunk.content, end="", flush=True)
